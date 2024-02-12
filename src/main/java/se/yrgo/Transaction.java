@@ -2,7 +2,6 @@ package se.yrgo;
 
 import java.util.Date;
 
-
 public class Transaction {
     private Date date;
     private String description;
@@ -18,31 +17,21 @@ public class Transaction {
         this.accountTo = accountTo;
     }
 
-    public double transferFunds(double amount, Account accountFrom, Account accountTo){
+    public void transferFunds() {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be greater than zero.");
         }
-    
+
         if (accountFrom == null || accountTo == null) {
             throw new IllegalArgumentException("Both source and destination accounts must be specified.");
         }
-    
+
         if (amount > accountFrom.getBalance()) {
             throw new IllegalStateException("Insufficient funds in the source account.");
         }
-    
+
         accountFrom.withdraw(amount);
         accountTo.deposit(amount);
-    
-        return amount;
-    }
-
-    public double withdraw(double amount){
-
-    }
-
-    public double deposit(double amount){
-        
     }
 
     public Date getDate() {
@@ -69,12 +58,25 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public Account getAccountFrom() {
+        return accountFrom;
+    }
+
+    public void setAccountFrom(Account accountFrom) {
+        this.accountFrom = accountFrom;
+    }
+
+    public Account getAccountTo() {
+        return accountTo;
+    }
+
+    public void setAccountTo(Account accountTo) {
+        this.accountTo = accountTo;
+    }
+
     @Override
     public String toString() {
-        return "Transaction{" +
-                "date=" + date +
-                ", description='" + description + '\'' +
-                ", amount=" + amount +
-                '}';
+        return "Transaction [date=" + date + ", description=" + description + ", amount=" + amount
+                + ", accountFrom=" + accountFrom + ", accountTo=" + accountTo + "]";
     }
 }
