@@ -25,21 +25,21 @@ public class Account {
         this.balance = balance;
     }
 
-    public void deposit(double amount, Account accountNumber) {
+    public void deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Deposit amount must be greater than zero.");
         }
-        accountNumber.balance += amount;
+        this.balance += amount;
     }
 
-    public void withdraw(double amount, Account accountNumber) {
+    public void withdraw(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Withdrawal amount must be greater than zero.");
         }
         if (amount > balance) {
             throw new IllegalStateException("Insufficient funds in the account.");
         }
-        accountNumber.balance -= amount;
+        this.balance -= amount;
     }
 
     @Override
