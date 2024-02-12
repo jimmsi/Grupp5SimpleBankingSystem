@@ -25,6 +25,27 @@ public class Customer {
         this.accountList.add(account);
     }
 
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public ArrayList<Account> getAccountList() {
+        return accountList;
+    }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
