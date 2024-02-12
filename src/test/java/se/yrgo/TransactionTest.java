@@ -1,28 +1,21 @@
 package se.yrgo;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import se.yrgo.Account;
+import se.yrgo.Transaction;
 
 public class TransactionTest {
 
     @Test
-    public void testTransferFunds() {
-        // Create two accounts
-        Account accountFrom = new Account("123", 1000);
-        Account accountTo = new Account("456", 500);
+    public void testValidTransaction() {
+        Account account1 = new Account("123456", 1000.0);
+        Account account2 = new Account("789012", 500.0);
+        Transaction transaction = new Transaction("2024-02-12", "Transfer", 200.0, account1, account2);
 
-        // Create a transaction
-        Date date = new Date();
-        Transaction transaction = new Transaction(date, "Transfer", 200, accountFrom, accountTo);
-
-        // Perform the transfer
-        transaction.transferFunds();
-
-        // Check if the balance of both accounts has been updated correctly
-        assertEquals(800, accountFrom.getBalance(), 0.001); // 1000 - 200
-        assertEquals(700, accountTo.getBalance(), 0.001); // 500 + 200
+        assertEquals(800.0, account1.getBalance(), 0.001);
+        assertEquals(700.0, account2.getBalance(), 0.001);
     }
+
 }
