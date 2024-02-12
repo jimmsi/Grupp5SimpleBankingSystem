@@ -5,17 +5,61 @@ import java.util.Date;
 import java.util.List;
 
 public class Transaction {
-    private Date date;
+    private String date;
     private String description;
     private double amount;
     private Account accountFrom;
     private Account accountTo;
-    private static List<Transaction> transactionList = new ArrayList<>();
+    public static List<Transaction> transactionList = new ArrayList<>();
 
-    public Transaction(Date date, String description, double amount) {
+    public Transaction(String date, String description, double amount, Account accountFrom, Account accountTo) {
         this.date = date;
         this.description = description;
         this.amount = amount;
+        this.accountFrom = accountFrom;
+        this.accountTo = accountTo;
+
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than zero.");
+        }
+
+        if (accountFrom == null || accountTo == null) {
+            throw new IllegalArgumentException("Both source and destination accounts must be specified.");
+        }
+
+        if (amount > accountFrom.getBalance()) {
+            throw new IllegalStateException("Insufficient funds in the source account.");
+        }
+
+        Transaction.withdraw(amount, accountFrom);
+        Transaction.deposit(amount, accountTo);
+
+        transactionList.add(this);
+    }
+
+    public Transaction(String date, String description, double amount, Account accountTo){
+        this.date = date;
+        this.description = description;
+        this.amount = amount;
+        this.accountTo = accountTo;
+
+        if (description.equals("withdraw")) {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Withdrawal amount must be greater than zero.");
+            }
+            if (amount > accountTo.getBalance()) {
+                throw new IllegalStateException("Insufficient funds in the account.");
+            }
+
+            accountTo.setBalance(accountTo.getBalance() - amount);
+        }
+        if (description.equals("deposit")) {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Deposit amount must be greater than zero.");
+            }
+
+            accountTo.setBalance(accountTo.getBalance() + amount);
+        }
         transactionList.add(this);
     }
 
@@ -34,6 +78,7 @@ public class Transaction {
 
         Transaction.withdraw(amount, accountFrom);
         Transaction.deposit(amount, accountTo);
+
     }
 
     public static void withdraw(double amount, Account accountNumber) {
@@ -52,12 +97,12 @@ public class Transaction {
         }
         accountNumber.balance += amount;
     }
-    public Date getDate() {
+    public String getDate() {
 
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
 
         this.date = date;
     }
