@@ -65,7 +65,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                Main
+                                se.yrgo.Main
                             </mainClass>
                         </manifest>
                     </archive>
