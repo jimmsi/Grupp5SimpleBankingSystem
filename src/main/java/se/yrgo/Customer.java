@@ -20,7 +20,7 @@ public class Customer {
 
     public void addAccount (Account account) {
         if (this.accountList == null) {
-            this.accountList = new ArrayList<>(); // Skapa listan första gången ett konto läggs till
+            this.accountList = new ArrayList<>();
         }
         this.accountList.add(account);
     }

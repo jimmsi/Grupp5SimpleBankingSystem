@@ -2,19 +2,11 @@ package se.yrgo;
 
 public class Account {
     private String accountNumber;
-    double balance;
+    private double balance;
 
     public Account(String accountNumber, double initialBalance) {
         this.accountNumber = accountNumber;
         this.balance = initialBalance;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
     }
 
     public double getBalance() {

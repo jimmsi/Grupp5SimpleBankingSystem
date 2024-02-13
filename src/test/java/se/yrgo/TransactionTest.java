@@ -1,10 +1,8 @@
 package se.yrgo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
-import se.yrgo.Account;
-import se.yrgo.Transaction;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransactionTest {
 
