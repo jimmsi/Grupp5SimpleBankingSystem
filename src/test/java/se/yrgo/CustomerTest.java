@@ -1,10 +1,7 @@
 package se.yrgo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
-import se.yrgo.Customer;
-import se.yrgo.Account;
 
 public class CustomerTest {
 

@@ -13,10 +13,12 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
+    /**
+     * Deposits the specified amount to the account.
+     * Throws IllegalArgumentException if the amount is less than or equal to 0.
+     *
+     * @param amount the amount to deposit
+     */
     public void deposit(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Deposit amount must be greater than zero.");
@@ -24,6 +26,13 @@ public class Account {
         this.balance += amount;
     }
 
+    /**
+     * Withdraws the specified amount from the account.
+     * Throws IllegalArgumentException if the amount is less than or equal to 0.
+     * Throws IllegalStateException if insufficient funds.
+     *
+     * @param amount the amount to withdraw
+     */
     public void withdraw(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Withdrawal amount must be greater than zero.");

@@ -16,7 +16,6 @@ public class Main {
         //Nya transaktioner
         Transaction t1 = new Transaction("2024-02-12", "withdraw", 400, acc1);
         Transaction t2 = new Transaction("2024-02-12", "deposit", 300, acc1);
-
         Transaction t3 = new Transaction("2024-02-12", "transfer", 300, acc1, acc2);
 
         System.out.println(acc1);

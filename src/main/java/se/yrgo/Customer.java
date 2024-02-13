@@ -17,7 +17,12 @@ public class Customer {
         this.email = email;
         this.accountList = null;
     }
-
+    /**
+     * Adds an {@link Account} to this customer's list of accounts. If the customer's
+     * account list is null, a new list is created and the account is added to it.
+     *
+     * @param account the {@link Account} to be added to the customer's account list
+     */
     public void addAccount (Account account) {
         if (this.accountList == null) {
             this.accountList = new ArrayList<>();
@@ -45,7 +50,13 @@ public class Customer {
         return accountList;
     }
 
-
+    /**
+     * Returns a string representation of the customer, including customer ID, name, address, email,
+     * and a list of accounts associated with the customer. Each account in the list is represented by
+     * its string representation.
+     *
+     * @return a string representation of the customer and their accounts
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
