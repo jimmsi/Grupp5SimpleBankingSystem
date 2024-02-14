@@ -57,5 +57,10 @@ public class Main {
         System.out.println("Updated Account Balances:");
         System.out.println("Account 1 Balance: " + account1.getBalance());
         System.out.println("Account 2 Balance: " + account2.getBalance());
+        System.out.println("");
+        System.out.println("All Transactions:");
+        for (Transaction transaction : Transaction.transactionList) {
+            System.out.println(transaction);
+        }
     }
 }
