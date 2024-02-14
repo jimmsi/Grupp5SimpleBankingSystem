@@ -77,6 +77,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction [date=" + date + ", description=" + description + ", amount=" + amount + ", accountFrom=" + accountFrom + ", accountTo=" + accountTo + "]";
+        return "Transaction Date: " + date + ", description: " + description + ", amount: " + amount + ", accountFrom: " + accountFrom + ", account from/to: " + accountTo;
     }
 }

@@ -8,8 +8,8 @@ public class Main {
         Account account1 = new Account("123456", 1000.0);
         Account account2 = new Account("789012", 500.0);
 
-        System.out.println("Initial balance on account 1:" + account1.getBalance());
-        System.out.println("Initial balance on account 2:" + account2.getBalance());
+        System.out.println("Initial balance on account 1: " + account1.getBalance());
+        System.out.println("Initial balance on account 2: " + account2.getBalance());
         System.out.println("");
 
         // Create a customer
