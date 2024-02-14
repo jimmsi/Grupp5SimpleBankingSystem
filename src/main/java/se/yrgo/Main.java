@@ -10,6 +10,7 @@ public class Main {
 
         System.out.println("Initial balance on account 1:" + account1.getBalance());
         System.out.println("Initial balance on account 2:" + account2.getBalance());
+        System.out.println("");
 
         // Create a customer
         Customer customer = new Customer(1, "John Doe", "123 Main St", "john@example.com");
@@ -19,6 +20,7 @@ public class Main {
         // Display customer information
         System.out.println("Customer Information:");
         System.out.println(customer);
+        System.out.println("");
 
         // Perform transactions
         try {
@@ -33,6 +35,7 @@ public class Main {
         try {
             // Withdraw from account1
             Transaction withdrawTransaction = new Transaction("2024-02-14", "withdraw", 100.0, account1);
+            System.out.println("");
             System.out.println("Withdraw Transaction:");
             System.out.println(withdrawTransaction);
         } catch (Exception e) {
@@ -42,6 +45,7 @@ public class Main {
         try {
             // Deposit to account2
             Transaction depositTransaction = new Transaction("2024-02-14", "deposit", 300.0, account2);
+            System.out.println("");
             System.out.println("Deposit Transaction:");
             System.out.println(depositTransaction);
         } catch (Exception e) {
@@ -49,6 +53,7 @@ public class Main {
         }
 
         // Display updated account balances
+        System.out.println("");
         System.out.println("Updated Account Balances:");
         System.out.println("Account 1 Balance: " + account1.getBalance());
         System.out.println("Account 2 Balance: " + account2.getBalance());
