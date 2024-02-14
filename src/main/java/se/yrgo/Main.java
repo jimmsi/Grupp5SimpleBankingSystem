@@ -4,28 +4,50 @@ import static se.yrgo.Transaction.transactionList;
 //Test för jenkins
 public class Main {
     public static void main(String[] args) {
-        //Nya konton
+        // Create accounts
+        Account account1 = new Account("123456", 1000.0);
+        Account account2 = new Account("789012", 500.0);
 
-        Account acc1 = new Account("23534643", 800);
-        Account acc2 = new Account("23534642", 1000);
+        // Create a customer
+        Customer customer = new Customer(1, "John Doe", "123 Main St", "john@example.com");
+        customer.addAccount(account1);
+        customer.addAccount(account2);
 
-        Customer cust = new Customer(1, "Jimmy", "Gatan 1", "jim@gmail.com");
-        cust.addAccount(acc1);
-        cust.addAccount(acc2);
+        // Display customer information
+        System.out.println("Customer Information:");
+        System.out.println(customer);
 
-        //Nya transaktioner
-        Transaction t1 = new Transaction("2024-02-12", "withdraw", 400, acc1);
-        Transaction t2 = new Transaction("2024-02-12", "deposit", 300, acc1);
-        Transaction t3 = new Transaction("2024-02-12", "transfer", 300, acc1, acc2);
-
-        System.out.println(acc1);
-        System.out.println(acc2);
-
-        for (Transaction transaction : transactionList) {
-            System.out.println(transaction);
+        // Perform transactions
+        try {
+            // Transfer from account1 to account2
+            Transaction transferTransaction = new Transaction("2024-02-14", "Transfer", 200.0, account1, account2);
+            System.out.println("Transfer Transaction:");
+            System.out.println(transferTransaction);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
 
-        System.out.println(cust);
+        try {
+            // Withdraw from account1
+            Transaction withdrawTransaction = new Transaction("2024-02-14", "withdraw", 100.0, account1);
+            System.out.println("Withdraw Transaction:");
+            System.out.println(withdrawTransaction);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
+        try {
+            // Deposit to account2
+            Transaction depositTransaction = new Transaction("2024-02-14", "deposit", 300.0, account2);
+            System.out.println("Deposit Transaction:");
+            System.out.println(depositTransaction);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // Display updated account balances
+        System.out.println("Updated Account Balances:");
+        System.out.println("Account 1 Balance: " + account1.getBalance());
+        System.out.println("Account 2 Balance: " + account2.getBalance());
     }
 }
