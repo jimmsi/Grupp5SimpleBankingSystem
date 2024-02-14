@@ -3,6 +3,7 @@ package se.yrgo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TransactionTest {
 
@@ -15,5 +16,6 @@ public class TransactionTest {
         assertEquals(800.0, account1.getBalance(), 0.001);
         assertEquals(700.0, account2.getBalance(), 0.001);
     }
+
 
 }
